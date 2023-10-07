@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sora';
+  font-weight: 100;
+  src: url('/fonts/Sora/Sora-ExtraLight.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 200;
+  src: url('/fonts/Sora/Sora-Light.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 300;
+  src: url('/fonts/Sora/Sora-Thin.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 400;
+  src: url('/fonts/Sora/Sora-Regular.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 500;
+  src: url('/fonts/Sora/Sora-Medium.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 600;
+  src: url('/fonts/Sora/Sora-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 700;
+  src: url('/fonts/Sora/Sora-Bold.ttf');
+}
+@font-face {
+  font-family: 'Sora';
+  font-weight: 800;
+  src: url('/fonts/Sora/Sora-ExtraBold.ttf');
+}
+
+* {
+  font-family: 'Sora', sans-serif;
+}
+
+@layer base {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number'] {
+    -webkit-appearance: none;
+    margin: 0;
+    appearance: none;
+    -moz-appearance: textfield !important;
+  }
+
+  h1 {
+    @apply text-2xl;
+    @apply md:text-3xl;
+    @apply mb-6;
+    @apply font-bold;
+  }
+
+  h2 {
+    @apply text-xl;
+    @apply md:text-2xl;
+    @apply mb-4;
+    @apply font-bold;
+  }
+
+  h3 {
+    @apply text-lg;
+    @apply md:text-xl;
+    @apply mb-4;
+    @apply font-bold;
+  }
+
+  h3 {
+    @apply text-base;
+    @apply md:text-lg;
+    @apply mb-4;
+    @apply font-bold;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  p {
+    @apply mb-4;
+  }
+}
