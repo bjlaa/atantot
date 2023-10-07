@@ -3,7 +3,6 @@ import CogWheelIcon from '../../components/icons/CogWheelIcon'
 import ButtonLink from '../../components/inputs/ButtonLink'
 import Header from '../../components/layout/Header'
 import { useUserData } from '../../hooks/userData/useUserData'
-import ListTitle from './_components/ListTitle'
 import RelativesList from './_components/RelativesList'
 
 export default function Home() {
@@ -15,9 +14,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-amber-50">
-      <Header className="flex justify-between">
-        <h1 className="mb-0">
-          Hi <span className="text-teal-500">{userData?.name}</span> 👋
+      <Header className="fixed left-0 right-0 top-0 z-10 mx-4 flex justify-between border-b border-solid border-slate-300 bg-amber-50 px-0">
+        <h1 className="mb-0 font-normal">
+          Hello <span className="text-teal-500">{userData?.name}</span> 👋
         </h1>
 
         <div>
@@ -27,12 +26,11 @@ export default function Home() {
         </div>
       </Header>
 
-      <main className="mb-20 p-4">
-        <ListTitle />
+      <main className="p-4 pb-20 pt-[7rem]">
         <RelativesList />
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 p-4">
+      <footer className="border-grey-200 fixed bottom-0 left-0 right-0 mx-4 border-t border-solid bg-amber-50 p-4 px-0">
         <ButtonLink
           to="/add-relative"
           className="w-full justify-center font-medium">
