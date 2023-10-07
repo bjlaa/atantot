@@ -8,6 +8,7 @@ type UserDataContextType = {
   updateUserName: (name: string) => void
   addRelative: (relative: Relative) => void
   removeRelative: (relative: Relative) => void
+  isLoading: boolean
 }
 
 const defaultUserData = { name: '', relatives: [] }
@@ -17,10 +18,12 @@ export const UserDataContext = createContext<UserDataContextType>({
   updateUserName: () => {},
   addRelative: () => {},
   removeRelative: () => {},
+  isLoading: true,
 })
 
 export function UserDataProvider({ children }: PropsWithChildren) {
   const [userData, setUserData] = useState<UserData | undefined>(undefined)
+  const [isLoading, setIsLoading] = useState(true)
 
   // Handles loading the userData from the storage
   useEffect(() => {
@@ -28,6 +31,8 @@ export function UserDataProvider({ children }: PropsWithChildren) {
       const userData = await getUserDataFromStorage()
 
       if (userData) setUserData(userData)
+
+      setIsLoading(false)
     }
 
     handleLoadUserData()
@@ -65,7 +70,13 @@ export function UserDataProvider({ children }: PropsWithChildren) {
 
   return (
     <UserDataContext.Provider
-      value={{ userData, updateUserName, addRelative, removeRelative }}>
+      value={{
+        userData,
+        updateUserName,
+        addRelative,
+        removeRelative,
+        isLoading,
+      }}>
       {children}
     </UserDataContext.Provider>
   )

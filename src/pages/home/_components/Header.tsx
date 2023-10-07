@@ -5,7 +5,7 @@ import { useGetName } from '../../../hooks/userData/useGetName'
 export default function Header() {
   const userName = useGetName()
   return (
-    <header className="flex items-center justify-between p-4">
+    <header className="flex items-center justify-between px-4 py-8">
       <h1 className="mb-0">Hi {userName}!</h1>
 
       <div>
