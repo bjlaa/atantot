@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import { ButtonSize } from '../../types/values'
 
 type Props = {
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
   className?: string
   size?: ButtonSize
   color?: 'primary' | 'secondary' | 'text'

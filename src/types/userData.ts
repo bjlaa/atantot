@@ -1,4 +1,4 @@
-enum Frequency {
+export enum Frequency {
   DAILY = 'DAILY',
   WEEKLY = 'WEEKLY',
   BIWEEKLY = 'BIWEEKLY',
@@ -8,10 +8,12 @@ enum Frequency {
 }
 
 export type Relative = {
-  name: string
-  frequency: Frequency
-  lastContactDate?: Date
   id: string
+  name: string
+  meetingFrequency?: Frequency
+  callingFrequency?: Frequency
+  lastContactDate?: string // ISO String
+  birthday?: string // ISO String
 }
 
 export type UserData = {

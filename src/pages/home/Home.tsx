@@ -1,12 +1,13 @@
-import { useContext } from 'react'
-import { Navigate } from 'react-router-dom'
-import { UserDataContext } from '../../contexts/UserDataContext'
-import Header from './_components/Header'
+import { Link, Navigate } from 'react-router-dom'
+import CogWheelIcon from '../../components/icons/CogWheelIcon'
+import ButtonLink from '../../components/inputs/ButtonLink'
+import Header from '../../components/layout/Header'
+import { useUserData } from '../../hooks/userData/useUserData'
 import ListTitle from './_components/ListTitle'
 import RelativesList from './_components/RelativesList'
 
 export default function Home() {
-  const { userData, isLoading } = useContext(UserDataContext)
+  const { userData, isLoading } = useUserData()
 
   if (!isLoading && !userData?.name) {
     return <Navigate to="/beginning" />
@@ -14,12 +15,28 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-amber-50">
-      <Header />
+      <Header className="flex justify-between">
+        <h1 className="mb-0">Hi {userData?.name}!</h1>
 
-      <main className="p-4">
+        <div>
+          <Link to="/settings" title="Settings">
+            <CogWheelIcon className="h-6 w-6 fill-slate-800" />
+          </Link>
+        </div>
+      </Header>
+
+      <main className="mb-20 p-4">
         <ListTitle />
         <RelativesList />
       </main>
+
+      <footer className="fixed bottom-0 left-0 right-0 p-4">
+        <ButtonLink
+          to="/add-relative"
+          className="w-full justify-center font-medium">
+          Add a relative
+        </ButtonLink>
+      </footer>
     </div>
   )
 }
