@@ -14,9 +14,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-amber-50">
-      <Header className="fixed left-0 right-0 top-0 z-10 mx-4 flex justify-between border-b border-solid border-slate-300 bg-amber-50 px-0">
+      <Header className="fixed left-0 right-0 top-0 z-10 mx-4 flex justify-between border-b border-solid border-slate-200 bg-amber-50 px-0">
         <h1 className="mb-0 font-normal">
-          Hello <span className="text-teal-500">{userData?.name}</span> 👋
+          Hello <span className="text-teal-500">{userData?.name}</span> ✌️
         </h1>
 
         <div>

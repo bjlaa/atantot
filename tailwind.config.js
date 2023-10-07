@@ -9,6 +9,9 @@ export default {
         primaryDark: '#32337B',
         primaryBorder: 'rgba(73, 18, 115, 0.1)',
       },
+      fontSize: {
+        '2xs': '.625rem',
+      },
     },
   },
   plugins: [],
