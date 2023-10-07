@@ -1,36 +1,47 @@
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 import Button from '../../../components/inputs/Button'
 import SelectInputGroup from '../../../components/inputs/SelectInputGroup'
 import TextInputGroup from '../../../components/inputs/TextInputGroup'
 import Header from '../../../components/layout/Header'
+import { useUserData } from '../../../hooks/userData/useUserData'
 import { Frequency, Relative } from '../../../types/userData'
 import { ContextType } from '../_types/context'
 
-export default function FormSecondStep() {
-  const { newRelative, updateNewRelative } = useOutletContext<ContextType>()
+export default function FormThirdStep() {
+  const { addRelative } = useUserData()
+  const { newRelative, resetNewRelative } = useOutletContext<ContextType>()
 
   const navigate = useNavigate()
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     const elements = new FormData(event.currentTarget)
-    const meetupFrequence = String(elements.get('meetupFrequence')) as Frequency
-    const lastMeetupDate = String(elements.get('lastMeetupDate')) as Frequency
+    const phoneCallFrequence = String(
+      elements.get('phoneCallFrequence')
+    ) as Frequency
+    const lastPhoneCallDate = String(
+      elements.get('lastPhoneCallDate')
+    ) as Frequency
 
-    updateNewRelative({
-      meetupFrequence,
-      lastMeetupDate,
+    addRelative({
+      ...newRelative,
+      lastPhoneCallDate,
+      phoneCallFrequence,
+      id: uuid(),
     } as Relative)
 
-    navigate('/add-relative/phone-call')
+    resetNewRelative()
+
+    navigate('/')
   }
 
   return (
     <>
       <Header>
-        <p className="mb-1 text-xs text-teal-800">Step 2 of 3</p>
+        <p className="mb-1 text-xs text-teal-800">Step 3 of 3</p>
 
         <h1 className="mb-0">
-          Meetup habits with{' '}
+          Phone call habits with{' '}
           <span className="text-teal-600">{newRelative?.name}</span>
         </h1>
       </Header>
@@ -43,15 +54,15 @@ export default function FormSecondStep() {
           }}>
           <TextInputGroup
             type="date"
-            name="lastMeetupDate"
-            label="The date of your last meetup"
+            label="The date of your last phone call"
+            name="lastPhoneCallDate"
             className="mb-4"
           />
 
           <SelectInputGroup
-            label="Meeting frequency"
-            helperText="How often you'd like to see this person"
-            name="meetupFrequence">
+            label="Calling frequency"
+            helperText="How often you'd like to call this person"
+            name="phoneCallFrequence">
             <option value=""></option>
             <option value={Frequency.DAILY}>Daily</option>
             <option value={Frequency.BIWEEKLY}>Biweekly (twice a week)</option>
@@ -64,7 +75,7 @@ export default function FormSecondStep() {
           </SelectInputGroup>
 
           <div className="mt-8 text-right">
-            <Button type="submit">Continue</Button>
+            <Button type="submit">Add Relative</Button>
           </div>
         </form>
       </main>

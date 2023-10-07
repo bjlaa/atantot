@@ -43,7 +43,7 @@ export default function SelectInputGroup({
       <select
         name={name}
         placeholder={placeholder}
-        className={`border-grey-300 bg-grey-100 focus:border-primary focus:ring-primary mt-3 max-w-[30rem] rounded-md border border-solid !p-4 text-sm transition-colors focus:ring-2 ${
+        className={`border-grey-300 focus:border-primary focus:ring-primary mt-3 max-w-[30rem] rounded-md border border-solid bg-white !p-4 text-sm transition-colors focus:ring-2 ${
           error ? '!border-red-200 !bg-red-50 ring-2 !ring-red-700' : ''
         }`}
         onChange={onChange}

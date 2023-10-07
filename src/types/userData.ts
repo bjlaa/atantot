@@ -10,9 +10,10 @@ export enum Frequency {
 export type Relative = {
   id: string
   name: string
-  meetingFrequency?: Frequency
-  callingFrequency?: Frequency
-  lastContactDate?: string // ISO String
+  meetupFrequence?: Frequency
+  lastMeetupDate?: string // ISO String
+  phoneCallFrequence?: Frequency
+  lastPhoneCallDate?: string // ISO String
   birthday?: string // ISO String
 }
 

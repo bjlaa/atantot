@@ -3,6 +3,7 @@ import { useUserData } from '../../../hooks/userData/useUserData'
 
 export default function RelativesList() {
   const { userData } = useUserData()
+  console.log(userData)
   return (
     <ul>
       {userData?.relatives?.map((relative) => (
@@ -10,11 +11,11 @@ export default function RelativesList() {
           <h2 className="text-base">{relative.name}</h2>
           <p className="mb-0 text-xs text-slate-700">
             <span className="mr-2 inline-block text-lg">🤝</span>{' '}
-            {relative.meetingFrequency}
+            {relative.meetupFrequence}
           </p>
           <p className="mb-0 text-xs  text-slate-700">
             <span className="mr-2 inline-block text-lg">☎️</span>{' '}
-            {relative.callingFrequency}
+            {relative.phoneCallFrequence}
           </p>
         </Card>
       ))}

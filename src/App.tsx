@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { UserDataProvider } from './contexts/UserDataContext'
 import FormFirstStep from './pages/add-relative/_components/FormFirstStep'
 import FormSecondStep from './pages/add-relative/_components/FormSecondStep'
+import FormThirdStep from './pages/add-relative/_components/FormThirdStep'
 import AddRelative from './pages/add-relative/AddRelative'
 import Beginning from './pages/beginning/Beginning'
 import Home from './pages/home/Home'
@@ -24,8 +25,12 @@ const router = createBrowserRouter([
         element: <FormFirstStep />,
       },
       {
-        path: '/add-relative/frequency',
+        path: '/add-relative/meetup',
         element: <FormSecondStep />,
+      },
+      {
+        path: '/add-relative/phone-call',
+        element: <FormThirdStep />,
       },
     ],
   },

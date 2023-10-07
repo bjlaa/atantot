@@ -16,7 +16,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-amber-50">
       <Header className="flex justify-between">
-        <h1 className="mb-0">Hi {userData?.name}!</h1>
+        <h1 className="mb-0">
+          Hi <span className="text-teal-500">{userData?.name}</span> 👋
+        </h1>
 
         <div>
           <Link to="/settings" title="Settings">
