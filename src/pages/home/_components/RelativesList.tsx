@@ -10,13 +10,13 @@ export default function RelativesList() {
   )
 
   return (
-    <>
+    <div className="pb-12">
       {lateRelatives?.length > 0 && (
         <>
           <h2 className="text-xs">You should take news from :</h2>
           <ul className="mb-8">
             {lateRelatives?.map((relative) => (
-              <RelativeListItem relative={relative} isLate />
+              <RelativeListItem key={relative.id} relative={relative} isLate />
             ))}
           </ul>
         </>
@@ -27,7 +27,7 @@ export default function RelativesList() {
           <div className="w-16 border  border-teal-400" />
           <ul className="mt-8">
             {seenRelatives?.map((relative) => (
-              <RelativeListItem relative={relative} />
+              <RelativeListItem key={relative.id} relative={relative} />
             ))}
           </ul>
         </>
@@ -42,6 +42,6 @@ export default function RelativesList() {
           </p>
         </>
       )}
-    </>
+    </div>
   )
 }

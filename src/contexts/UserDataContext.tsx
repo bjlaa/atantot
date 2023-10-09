@@ -1,6 +1,7 @@
 import { PropsWithChildren, createContext, useEffect, useState } from 'react'
 import { getUserDataFromStorage } from '../helpers/storage/getUserDataFromStorage'
 import { updateUserDataInStorage } from '../helpers/storage/updateUserDataInStorage'
+import { useSendNotifications } from '../hooks/notifications/useSendNotifications'
 import { Relative, UserData } from '../types/userData'
 
 type UserDataContextType = {
@@ -67,6 +68,8 @@ export function UserDataProvider({ children }: PropsWithChildren) {
         ) || [],
     })
   }
+
+  useSendNotifications(userData?.relatives || [])
 
   return (
     <UserDataContext.Provider

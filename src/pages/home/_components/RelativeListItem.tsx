@@ -46,17 +46,17 @@ export default function RelativeListItem({
       tag="li"
       key={relative.id}
       className={`relative mb-2 last-of-type:mb-0 ${
-        isLate ? 'bg-red-50' : ''
+        isLate ? '!bg-red-50' : ''
       }`}>
       <h2 className="mb-2 text-base">{relative.name}</h2>
       <div className="flex">
         <div className="mb-0 flex-1 ">
-          <p className="text-2xs mb-1 text-slate-700">
+          <p className="mb-1 text-2xs text-slate-700">
             <span className="inline-block text-xs">👋</span> Meetup
           </p>
 
           <p
-            className={`text-2xs mb-0 ${
+            className={`mb-0 text-2xs ${
               isLate ? 'font-bold text-red-700' : ''
             }`}>
             {relative.lastMeetupDate ? (
@@ -66,7 +66,7 @@ export default function RelativeListItem({
             )}
           </p>
 
-          <p className="text-2xs mb-0 text-teal-800">
+          <p className="mb-0 text-2xs text-teal-800">
             {' '}
             {getFrequenceLabel(relative.meetupFrequence) || (
               <span className="font-normal text-slate-400">--</span>
@@ -75,12 +75,12 @@ export default function RelativeListItem({
         </div>
 
         <div className="mb-0 flex-1 ">
-          <p className="text-2xs mb-1 text-slate-700">
+          <p className="mb-1 text-2xs text-slate-700">
             <span className="inline-block text-xs">☎️</span> Phone call
           </p>
 
           <p
-            className={`text-2xs mb-0 ${
+            className={`mb-0 text-2xs ${
               isLate ? 'font-bold text-red-700' : ''
             }`}>
             {relative.lastPhoneCallDate ? (
@@ -90,7 +90,7 @@ export default function RelativeListItem({
             )}
           </p>
 
-          <p className="text-2xs mb-0 text-teal-800">
+          <p className="mb-0 text-2xs text-teal-800">
             {getFrequenceLabel(relative.phoneCallFrequence) || (
               <span className="font-normal text-slate-400">--</span>
             )}
